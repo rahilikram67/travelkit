@@ -1,5 +1,6 @@
 import i18next from 'i18next';
 import Experience from './Experience';
+import CreateExperience from './CreateExperience';
 import en from './i18n/en';
 import tr from './i18n/tr';
 import ar from './i18n/ar';
@@ -30,6 +31,10 @@ const ExperienceConfig = {
       path: 'experience',
       element: <Experience />,
     },
+    {
+      path: '/createExp',
+      element: <CreateExperience />,
+    }
   ],
 };
 

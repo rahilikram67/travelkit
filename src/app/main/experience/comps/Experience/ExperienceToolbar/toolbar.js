@@ -4,11 +4,10 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
 import { ListItemText } from '@mui/material';
-
+import {Link, useNavigate} from "react-router-dom"
 export default function ButtonAppBar() {
+    const navigate = useNavigate();
     return (
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static" className='bg-white'>
@@ -25,7 +24,7 @@ export default function ButtonAppBar() {
                     }
                     />
 
-                    <Button className="rounded" color='info' variant='contained'>Create Experience</Button>
+                    <Button onClick={()=>navigate("/createExp")} className="rounded" color='info' variant='contained'>Create Experience</Button>
                     <Button className='bg-gray-200 text-black font-bold mx-4 rounded' variant='contained'>Import from File</Button>
                     <Button className='bg-gray-200 text-black font-bold rounded' variant='contained'>Import from Viator</Button>
                 </Toolbar>
@@ -33,3 +32,4 @@ export default function ButtonAppBar() {
         </Box>
     );
 }
+
