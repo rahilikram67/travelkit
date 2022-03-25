@@ -2,10 +2,9 @@ import {useState} from "react"
 import { styled } from '@mui/material/styles';
 import FusePageSimple from '@fuse/core/FusePageSimple';
 import { useTranslation } from 'react-i18next';
-import ButtonAppBar from './comps/ExperienceToolbar/toolbar';
-
+import ButtonAppBar from './comps/Experience/ExperienceToolbar/toolbar';
 import { Box } from "@mui/material"
-import Searchbar from './comps/Searchbar/Searchbar';
+import Searchbar from './comps/Experience/Searchbar/Searchbar';
 import DataTable from "./comps/Experience/DataTable/DataTable";
 const Root = styled(FusePageSimple)({
   '& .FusePageSimple-header': {},

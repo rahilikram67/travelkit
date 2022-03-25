@@ -1,6 +1,9 @@
-import { InputLabel, TextField, Typography, Box, Radio, ListItemText,Stack,Switch,Button } from "@mui/material"
-import { useState } from "react"
-export default function ({ show }) {
+import { InputLabel, TextField, Typography, Box, Radio, ListItemText, Stack, Switch, Button } from "@mui/material"
+import { useState, useContext } from "react"
+import { goNext } from "../helperFunctions"
+import Context from "../context"
+export default function () {
+    const { step, nextStep } = useContext(Context)
     const [selected, setSelected] = useState("Tour / Activity")
     const setType = (e) => {
         setSelected(e)
@@ -20,7 +23,7 @@ export default function ({ show }) {
         },
     ]
     return (
-        <div className={`pl-32 pt-20 ${(!show) ? "hidden" : ''}`}>
+        <div className={`pl-32 pt-20 ${(step === 0) ? "" : 'hidden'}`}>
             <h4 className="font-bold">Title and type</h4>
             <InputCover label="Title" star="*" >
                 <TextField
@@ -55,11 +58,11 @@ export default function ({ show }) {
                 </Typography>
                 <Stack direction="row" spacing={0} alignItems="center">
                     <Switch />
-                    <Typography>Show as Private</Typography>    
+                    <Typography>Show as Private</Typography>
                 </Stack>
             </InputCover>
             <div className="w-full max-w-screen-sm">
-                    <Button variant="contained" className="block ml-auto rounded" color="info">Continue</Button>
+                <Button onClick={() => goNext(nextStep)} variant="contained" className="block ml-auto rounded" color="info">Continue</Button>
             </div>
         </div >
     )

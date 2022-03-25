@@ -6,7 +6,7 @@ import ListItemText from '@mui/material/ListItemText';
 import { Typography } from "@mui/material"
 
 let list = ["Title and type", "Duration ", "Categories & themes", "Location ", "Time zone ", "Itinerary ", "Description ", "Photos ", "Videos ", "Inclusions ", "Exclusions ", "Know before you go ", "What to bring ", "Tickets ", "Extras ", "Translations ", "Advanced ", "Tripadvisor review", "MS Google ", "Things to do"]
-export default function DenseMenu({ bold, setBold }) {
+export default function DenseMenu({ step, nextStep }) {
 
     return (
         <Paper className='mt-1 rounded-none'>
@@ -18,7 +18,7 @@ export default function DenseMenu({ bold, setBold }) {
                 </MenuItem>
                 {
                     list.map((item, index) => <MenuItem key={index}>
-                        <ListItemText primary={<div className={(bold === index) ? 'font-black' : ''}>
+                        <ListItemText primary={<div className={(step === index) ? 'font-black' : ''}>
                             {item}
                         </div>} className="ml-6" />
                     </MenuItem>)
