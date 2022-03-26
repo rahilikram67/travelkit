@@ -1,17 +1,21 @@
-import { useState, createContext } from "react"
+import { useState } from "react"
 import TopToolbar from "./comps/CreateExperience/Toolbar/toolbar"
-import StepList from "./comps/CreateExperience/List/List"
 
+import StepList from "./comps/CreateExperience/List/List"
+import NextContext from "./comps/CreateExperience/context"
+
+import Location from "./comps/CreateExperience/StepperForm/Location"
 import { Grid, Paper } from "@mui/material"
 import TitleAndType from "./comps/CreateExperience/StepperForm/TitleAndType"
 import Duration from "./comps/CreateExperience/StepperForm/Duration"
 import CategoriesAndThemes from "./comps/CreateExperience/StepperForm/Categories&themes"
+import Description from "./comps/CreateExperience/StepperForm/Description"
+import Photos from "./comps/CreateExperience/StepperForm/Photos"
 
 
-import NextContext from "./comps/CreateExperience/context"
-import Location from "./comps/CreateExperience/StepperForm/Location"
+
 export default () => {
-    const [step, nextStep] = useState(0)
+    const [step, nextStep] = useState(4)
     return (
         <>
 
@@ -29,6 +33,8 @@ export default () => {
                             <Duration />
                             <CategoriesAndThemes />
                             <Location />
+                            <Description />
+                            <Photos />
                         </NextContext.Provider>
                     </Paper>
                 </Grid>
