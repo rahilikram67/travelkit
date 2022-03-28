@@ -23,7 +23,7 @@ export default function () {
         },
     ]
     return (
-        <div className={`pl-32 pt-20 ${(step === 0) ? "" : 'hidden'}`}>
+        <div className={`${(step === 0) ? "" : 'hidden'}`}>
             <h4 className="font-bold">Title and type</h4>
             <InputCover label="Title" star="*" >
                 <TextField

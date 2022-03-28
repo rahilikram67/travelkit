@@ -9,7 +9,7 @@ import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 export default () => {
     const { step } = useContext(Context)
     const [state, setState] = useState(EditorState.createEmpty())
-    return <div className={`pl-32 pt-20 ${(step === 4) ? "" : 'hidden'}`}>
+    return <div className={`${(step === 4) ? "" : 'hidden'}`}>
         <h4 className="font-bold">Description</h4>
         <Typography variant="body1" className="italic text-gray-700">
             Describe what you'll do.

@@ -4,7 +4,7 @@ import Context from "../context"
 import { useContext } from "react"
 export default () => {
     const { step } = useContext(Context)
-    return <div className={`pl-32 pt-20 ${(step === 1) ? "" : 'hidden'}`}>
+    return <div className={`${(step === 1) ? "" : 'hidden'}`}>
         <h4 className="font-bold">Duration</h4>
         <Typography variant="body1" className="italic text-gray-700">
             Set the duration length for your experience. you should include the travel time so your customer knows exactly how long it will take.

@@ -24,8 +24,8 @@ function ExperiencePage(props) {
         <ButtonAppBar />
       }
       content={
-        <div className="p-24">
-          <Box className='w-12/12 border-2 h-56 mx-32 rounded'>
+        <div className="md:p-24 mt-52 md:mt-10">
+          <Box className='border-2 h-56 mx-32 rounded'>
             <Searchbar search={search} setSearch={setSearch} />
           </Box>
           <DataTable search={search} />

@@ -6,7 +6,7 @@ import Context from "../context"
 export default () => {
     const { step } = useContext(Context)
     const Categories = ["Alone", "Solo", "Group", "Family"]
-    return <div className={`pl-32 pt-20 ${(step === 2) ? "" : 'hidden'}`}>
+    return <div className={`${(step === 2) ? "" : 'hidden'}`}>
         <h4 className="font-bold">Categories & themes</h4>
         <Typography variant="body1" className="italic text-gray-700">
             Categories your tour so customers can easily navigate and find the experiences based upon their likings.

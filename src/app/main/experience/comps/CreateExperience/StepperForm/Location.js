@@ -6,7 +6,7 @@ import Context from "../context"
 export default () => {
     const { step } = useContext(Context)
     const places = ["pakistan", "india", "bangladesh", "china"]
-    return <div className={`pl-32 pt-20 ${(step === 3) ? "" : 'hidden'}`}>
+    return <div className={`${(step === 3) ? "" : 'hidden'}`}>
         <h4 className="font-bold">Location</h4>
         <Typography variant="body1" className="italic text-gray-700">
             Choose the correct location for your experience.
