@@ -40,10 +40,7 @@ export default () => {
         <div className="flex justify-center flex-wrap items-center mt-10 max-w-screen-sm">
             {
                 files.map((file, index) => {
-                    return <div key={index}>
-                        <Typography hidden={index!==0} className="bg-blue-400 text-white">cover</Typography>
-                    <Avatar src={URL.createObjectURL(file)} className="h-80 w-80 rounded border-2 mx-4" />
-                    </div>
+                    return <Avatar key={index} src={URL.createObjectURL(file)} className="h-80 w-80 rounded border-2 mx-4" />
                 })
             }
         </div>
