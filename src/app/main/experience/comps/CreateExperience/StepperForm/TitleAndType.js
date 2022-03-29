@@ -1,12 +1,14 @@
 import { InputLabel, TextField, Typography, Box, Radio, ListItemText, Stack, Switch, Button } from "@mui/material"
-import { useState, useContext } from "react"
+import { useContext, useEffect } from "react"
 import { goNext } from "../helperFunctions"
 import Context from "../context"
 export default function () {
-    const { step, nextStep } = useContext(Context)
-    const [selected, setSelected] = useState("Tour / Activity")
+    const { step, nextStep, formData, setFormData } = useContext(Context)
+    
+    useEffect(() => setFormData({ ...formData, type: "Tour / Activity" }), [])
+    
     const setType = (e) => {
-        setSelected(e)
+        setFormData({ ...formData, type: e })
     }
     let types = [
         {
@@ -30,6 +32,8 @@ export default function () {
                     fullWidth
                     size="small"
                     className="max-w-screen-sm mt-8"
+                    value={formData.title||""}
+                    onChange={(e) => setFormData({ ...formData, title: e.target.value })}
                 />
             </InputCover>
             <InputCover label="Product Code" className="mt-20">
@@ -40,13 +44,15 @@ export default function () {
                     fullWidth
                     size="small"
                     className="max-w-screen-sm mt-8"
+                    value={formData.productCode || ""}
+                    onChange={(e) => setFormData({ ...formData, productCode: e.target.value })}
                 />
             </InputCover>
             <InputCover label="Type" star="*" className="mt-20">
                 {
                     types.map((item, index) => {
-                        return <Box key={index} onClick={() => setType(item.primary)} padding={1} border={(selected === item.primary) ? "2px solid #22D3EE" : "1px solid #9B728C"} className="max-w-screen-sm rounded mt-8 flex cursor-pointer">
-                            <Radio checked={item.primary === selected} value={item.primary} />
+                        return <Box key={index} onClick={() => setType(item.primary)} padding={1} border={(formData.type === item.primary) ? "2px solid #22D3EE" : "1px solid #9B728C"} className="max-w-screen-sm rounded mt-8 flex cursor-pointer">
+                            <Radio checked={formData.type === item.primary} value={item.primary} />
                             <ListItemText primary={<div className="font-bold">{item.primary}</div>} secondary={item.secondary} />
                         </Box>
                     })
@@ -57,12 +63,12 @@ export default function () {
                     Private experiences only accommodate one group per booking and are not shared with others. This does not automatically close out the departure when you receive a booking.
                 </Typography>
                 <Stack direction="row" spacing={0} alignItems="center">
-                    <Switch />
+                    <Switch onChange={(e)=>setFormData({...formData,private:e.target.checked})} />
                     <Typography>Show as Private</Typography>
                 </Stack>
             </InputCover>
             <div className="w-full max-w-screen-sm">
-                <Button onClick={() => goNext(nextStep)} variant="contained" className="block ml-auto rounded" color="info">Continue</Button>
+                <Button disabled={formData.title===""} onClick={() => goNext(nextStep)} variant="contained" className="block ml-auto rounded" color="info">Continue</Button>
             </div>
         </div >
     )

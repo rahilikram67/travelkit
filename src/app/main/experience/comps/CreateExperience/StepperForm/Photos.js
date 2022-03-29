@@ -21,7 +21,7 @@ export default () => {
                 setError(false)
                 setTimeout(() => setError(true), 3000)
             }
-            else if (files.length < 4) setFiles(files.concat(acceptedFiles))
+            else if (files.length < 3) setFiles(files.concat(acceptedFiles.slice(0,3)))
         }}>
             {({ getRootProps, getInputProps }) => (
                 <section className="border-2 border-dotted hover:bg-gray-400 hover:text-white rounded mt-40 h-auto grid place-items-center max-w-screen-sm">
@@ -37,10 +37,13 @@ export default () => {
         <Typography hidden={error} variant="h6" color="red" className="text-center max-w-screen-sm">
             File size more than 17 mb
         </Typography>
-        <div className="flex justify-around flex-wrap items-center mt-10 max-w-screen-sm">
+        <div className="flex justify-center flex-wrap items-center mt-10 max-w-screen-sm">
             {
                 files.map((file, index) => {
-                    return <Avatar key={index} src={URL.createObjectURL(file)} className="h-80 w-80 rounded border-2" />
+                    return <div key={index}>
+                        <Typography hidden={index!==0} className="bg-blue-400 text-white">cover</Typography>
+                    <Avatar src={URL.createObjectURL(file)} className="h-80 w-80 rounded border-2 mx-4" />
+                    </div>
                 })
             }
         </div>

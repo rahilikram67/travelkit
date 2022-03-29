@@ -16,6 +16,7 @@ import Photos from "./comps/CreateExperience/StepperForm/Photos"
 
 export default () => {
     const [step, nextStep] = useState(5)
+    const [formData,setFormData] = useState({})
     return (
         <>
             <Grid container>
@@ -28,7 +29,7 @@ export default () => {
                 <Grid item md={10}>
                     <Paper className="bg-white mt-1 border-l-2 w-full h-full rounded-none">
                         <div className="px-10 md:pl-32 pt-20">
-                            <NextContext.Provider value={{ step, nextStep }}>
+                            <NextContext.Provider value={{ step, nextStep,formData,setFormData }}>
                                 <TitleAndType />
                                 <Duration />
                                 <CategoriesAndThemes />
