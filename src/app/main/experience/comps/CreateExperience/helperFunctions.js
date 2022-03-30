@@ -1,5 +1,5 @@
 
-export default t =  {
+export default  {
     goNext: (nextStep) => {
         window.scrollTo(0, 0)
         nextStep(step => step + 1)
