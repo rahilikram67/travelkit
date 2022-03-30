@@ -19,7 +19,7 @@ export default function DenseMenu({ step, nextStep }) {
                 </MenuItem>
                 {
                     list.map((item, index) => <MenuItem key={index}>
-                        <ListItemText primary={<div className={(step === index) ? 'font-black' : ''}>
+                        <ListItemText onClick={()=>nextStep(index)} primary={<div className={(step === index) ? 'font-black' : ''}>
                             {item}
                         </div>} className="ml-6" />
                     </MenuItem>)

@@ -1,10 +1,11 @@
-import { InputLabel, TextField, Typography, Box, Radio, ListItemText, Stack, Switch, Button } from "@mui/material"
+import { TextField, Typography, Box, Radio, ListItemText, Stack, Switch, Button } from "@mui/material"
 import { useContext, useEffect } from "react"
 import { goNext } from "../helperFunctions"
 import Context from "../context"
+import InputCover from "../InputCover/InputCover"
 export default function () {
     const { step, nextStep, formData, setFormData } = useContext(Context)
-    
+    console.log(formData)  
     useEffect(() => setFormData({ ...formData, type: "Tour / Activity" }), [])
     
     const setType = (e) => {
@@ -68,17 +69,9 @@ export default function () {
                 </Stack>
             </InputCover>
             <div className="w-full max-w-screen-sm">
-                <Button disabled={formData.title===""} onClick={() => goNext(nextStep)} variant="contained" className="block ml-auto rounded" color="info">Continue</Button>
+                <Button disabled={!formData.title} onClick={() => goNext(nextStep)} variant="contained" className="block ml-auto rounded" color="info">Continue</Button>
             </div>
         </div >
     )
 }
 
-function InputCover({ label, star = "", children, className = "" }) {
-    return <div className={"flex flex-col " + className}>
-        <InputLabel className="text-black mt-10">
-            {label}<span className="text-red-700">{star}</span>
-        </InputLabel>
-        {children}
-    </div>
-}

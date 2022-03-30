@@ -1,9 +1,10 @@
-import { Typography, InputLabel, Autocomplete, TextField } from "@mui/material"
+import { Typography, InputLabel } from "@mui/material"
 import { useContext } from "react"
 
 import NavButtons from "../BottomNavButtons/NavButtons"
 import Context from "../context"
 import ReactAutoComplete from "react-google-autocomplete"
+import InputCover from "../InputCover/InputCover";
 export default () => {
     const { step,formData,setFormData } = useContext(Context)
     const places = ["pakistan", "india", "bangladesh", "china"]
@@ -14,14 +15,6 @@ export default () => {
         </Typography>
 
         <InputCover label="Location" className="mt-10">
-            {/* <Autocomplete
-                disablePortal
-                options={places}
-                renderInput={(params) => <TextField {...params} fullWidth
-                    size="small"
-                    className="max-w-screen-sm mt-8"
-                />}
-            /> */}
             <ReactAutoComplete
                 apiKey="AIzaSyBi6TZ639BVwEASDI3q4HDCk6YKTdiA4Sg"
                 onPlaceSelected={(place) =>setFormData({...formData,location:place.formatted_address})}
@@ -34,11 +27,3 @@ export default () => {
     </div >
 }
 
-function InputCover({ label, children, className = "" }) {
-    return <div className={"flex flex-col " + className}>
-        <InputLabel className="text-black mt-10 text-sm font-bold">
-            {label}
-        </InputLabel>
-        {children}
-    </div>
-}

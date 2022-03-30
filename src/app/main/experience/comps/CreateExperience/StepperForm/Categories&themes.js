@@ -3,8 +3,9 @@ import { useContext } from "react"
 
 import NavButtons from "../BottomNavButtons/NavButtons"
 import Context from "../context"
+import InputCover from "../InputCover/InputCover";
 export default () => {
-    const { step } = useContext(Context)
+    const { step, formData, setFormData } = useContext(Context)
     const Categories = ["Alone", "Solo", "Group", "Family"]
     return <div className={`${(step === 2) ? "" : 'hidden'}`}>
         <h4 className="font-bold">Categories & themes</h4>
@@ -17,12 +18,18 @@ export default () => {
                 Help your customers to understand what type of experience is this.
             </Typography>
             <Autocomplete
-                disablePortal
+                multiple
+                freeSolo
                 options={Categories}
-                renderInput={(params) => <TextField {...params} fullWidth
-                    size="small"
-                    className="max-w-screen-sm mt-8"
-                />}
+                onChange={(event, value) => setFormData({ ...formData, categories: value })}
+                renderInput={params => (
+                    <TextField
+                        {...params}
+                        fullWidth
+                        size="small"
+                        className="max-w-screen-sm mt-8"
+                    />
+                )}
             />
         </InputCover>
         <InputCover label="Themes" className="mt-10">
@@ -30,23 +37,20 @@ export default () => {
                 Select the themes that apply for this experience.
             </Typography>
             <Autocomplete
+                multiple
+                freeSolo
                 options={Categories}
-                disablePortal
-                renderInput={(params) => <TextField {...params} fullWidth
-                    size="small"
-                    className="max-w-screen-sm mt-8"
-                />}
+                onChange={(event, value) => setFormData({ ...formData, themes: value })}
+                renderInput={params => (
+                    <TextField
+                        {...params}
+                        fullWidth
+                        size="small"
+                        className="max-w-screen-sm mt-8"
+                    />
+                )}
             />
         </InputCover>
         <NavButtons />
     </div >
-}
-
-function InputCover({ label, children, className = "" }) {
-    return <div className={"flex flex-col " + className}>
-        <InputLabel className="text-black mt-10 text-sm font-bold">
-            {label}
-        </InputLabel>
-        {children}
-    </div>
 }

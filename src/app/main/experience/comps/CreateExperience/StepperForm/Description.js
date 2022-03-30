@@ -6,6 +6,7 @@ import Context from "../context"
 import { EditorState } from "draft-js"
 import { Editor } from "react-draft-wysiwyg";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
+import InputCover from "../InputCover/InputCover";
 export default () => {
     const { step } = useContext(Context)
     const [state, setState] = useState(EditorState.createEmpty())
@@ -34,13 +35,5 @@ export default () => {
             />
         </InputCover>
         <NavButtons />
-    </div>
-}
-function InputCover({ label, children, className = "" }) {
-    return <div className={"flex flex-col " + className}>
-        <InputLabel className="text-black mt-10 text-sm font-bold">
-            {label}
-        </InputLabel>
-        {children}
     </div>
 }

@@ -11,11 +11,12 @@ import Duration from "./comps/CreateExperience/StepperForm/Duration"
 import CategoriesAndThemes from "./comps/CreateExperience/StepperForm/Categories&themes"
 import Description from "./comps/CreateExperience/StepperForm/Description"
 import Photos from "./comps/CreateExperience/StepperForm/Photos"
+import Videos from "./comps/CreateExperience/StepperForm/Videos"
 
 
 
 export default () => {
-    const [step, nextStep] = useState(5)
+    const [step, nextStep] = useState(6)
     const [formData,setFormData] = useState({})
     return (
         <>
@@ -36,6 +37,7 @@ export default () => {
                                 <Location />
                                 <Description />
                                 <Photos />
+                                <Videos />
                             </NextContext.Provider>
                         </div>
                     </Paper>
