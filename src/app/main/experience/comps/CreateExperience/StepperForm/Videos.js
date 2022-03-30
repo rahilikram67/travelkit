@@ -7,7 +7,7 @@ import Context from "../context"
 import React from 'react'
 import InputCover from "../InputCover/InputCover"
 import { Box } from "@mui/system"
-import { getVimeoVideoData, getYTVideoData } from "../helperFunctions"
+import functions from "../helperFunctions"
 import axios from "axios"
 
 
@@ -58,8 +58,8 @@ export default () => {
       let value = ev.target.value
       if (ev.key !== "Enter" || !value) return
       setShowProgress(true)
-      if (value.includes("youtube.com")) insertVideoData(await getYTVideoData(value, axios))
-      else if (value.includes("vimeo.com")) insertVideoData(await getVimeoVideoData(value, axios))
+      if (value.includes("youtube.com")) insertVideoData(await functions.getYTVideoData(value, axios))
+      else if (value.includes("vimeo.com")) insertVideoData(await functions.getVimeoVideoData(value, axios))
       ev.target.value = ""
       setShowProgress(false)
       setShowInput(false)

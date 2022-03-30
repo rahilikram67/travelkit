@@ -1,6 +1,6 @@
 import { TextField, Typography, Box, Radio, ListItemText, Stack, Switch, Button } from "@mui/material"
 import { useContext, useEffect } from "react"
-import { goNext } from "../helperFunctions"
+import functions from "../helperFunctions"
 import Context from "../context"
 import InputCover from "../InputCover/InputCover"
 export default function () {
@@ -69,7 +69,7 @@ export default function () {
                 </Stack>
             </InputCover>
             <div className="w-full max-w-screen-sm">
-                <Button disabled={!formData.title} onClick={() => goNext(nextStep)} variant="contained" className="block ml-auto rounded" color="info">Continue</Button>
+                <Button disabled={!formData.title} onClick={() => functions.goNext(nextStep)} variant="contained" className="block ml-auto rounded" color="info">Continue</Button>
             </div>
         </div >
     )
